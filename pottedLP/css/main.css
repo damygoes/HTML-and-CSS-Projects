@@ -142,15 +142,42 @@ section.hero .down-arrow path {
 }
 
 /*----- 5. The Product Section -----*/
+.product-info-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 2em;
+  margin: .5em;
+  /*.side-img{
+        // visibility: hidden; // this hides the last image in the product section on the mobile view
+        height: 35em;
+    }*/
+}
+
+.product-info-grid .product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.product-info-grid .content {
+  margin: 0em .5em 5em .5em;
+  line-height: .5em;
+}
+
 .product-info-grid img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   height: 25em;
-}
-
-.product-info-grid .side-img {
-  height: 35em;
 }
 
 .product-info-grid .title {
@@ -261,36 +288,59 @@ section.hero .down-arrow path {
     }
     */
   .product-info-grid {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    gap: 3em;
-    margin-bottom: 5em;
-    /* This works fine too but not what I want, might use it later 
-        .content.p1{
-            grid-column-start: 2;
-            grid-row-start: 1;
-
-        }
-        */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 2.5em;
+    margin: 1.5em;
+    width: 80%;
   }
-  .product-info-grid img {
+  .product-info-grid .product {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1.5em;
+  }
+  .product-info-grid .product img {
+    width: 20em;
+    margin-right: 3em;
+  }
+  .product-info-grid .product .content {
+    text-align: left;
     width: 25em;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
   }
-  .product-info-grid .content {
+  .product-info-grid .product.flip {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-flow: row-reverse;
+            flex-flow: row-reverse;
+  }
+  .product-info-grid .product.flip img {
+    margin-left: 3em;
+    position: relative;
+  }
+  .product-info-grid .product.flip .content {
     text-align: right;
-    width: 25em;
-  }
-  .product.flip {
-    -ms-grid-row: 2;
-        grid-row-start: 2;
-  }
-  .product.last {
-    -ms-grid-row: 2;
-        grid-row-start: 2;
-    -ms-grid-column: 2;
-        grid-column-start: 2;
+    margin-right: 3em;
   }
 }
 /*# sourceMappingURL=main.css.map */

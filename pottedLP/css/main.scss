@@ -144,15 +144,29 @@ section.hero{
 
 /*----- 5. The Product Section -----*/
 .product-info-grid{
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    margin: .5em;
+
+    .product{
+        display: flex;
+        flex-direction: column;
+    }
+    .content{
+        margin: 0em .5em 5em .5em;
+        line-height: .5em;
+    }
+
     img{
         width: 100%; // this makes all the images in this section responsive
         object-fit: cover; // the object-fit works together with setting a defined height. This allows the images to have a fixed size and not get distorted when the browser size changes
         height: 25em;
     }
-    .side-img{
+    /*.side-img{
         // visibility: hidden; // this hides the last image in the product section on the mobile view
         height: 35em;
-    }
+    }*/
     .title{
         font-family: 'Port Lligat Sans', sans-serif;
         font-weight: bold;
@@ -200,9 +214,10 @@ section.hero{
         margin: 1.5em 5em;
     }
 
-}
+};
 
 @media only screen and (min-width: 890px) {
+
     .hamburger-menu{
         display: none;
     };
@@ -214,6 +229,7 @@ section.hero{
         width: auto; // sets width to auto
         height: auto; // sets height to auto
         background: none; // this removes the huge white background behind the nav bar
+
 
         .close{
             display: none; // this hides the close button (X)
@@ -263,43 +279,58 @@ section.hero{
     */
 
     .product-info-grid{
-        display: grid;
-        // grid-template-columns: repeat(3, auto);
-        grid-template-columns: 1fr 1fr;
-        gap: 3em;
-        margin-bottom: 5em;
-        
-        img{
-            width: 25em;
-        }
-
-        .content{
-            text-align: right;
-            width: 25em;
-        }
-
-        /* This works fine too but not what I want, might use it later 
-        .content.p1{
-            grid-column-start: 2;
-            grid-row-start: 1;
-
-        }
-        */
-
+        display: flex;
+        flex-direction: column;
+        padding: 2.5em;
+        margin: 1.5em;
+        width: 80%;
         
 
+        .product{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5em;
+            
+    
+    
+            img{
+                width: 20em;
+                margin-right: 3em;
+            }
+
+            .content{
+                text-align: left;
+                width: 25em;
+                justify-content: center;
+                align-content: center;
+            }
+        }
+
+        .product.flip{
+            flex-flow: row-reverse;
+            
+            img{
+                margin-left: 3em;
+                position: relative;
+            }
+            
+
+            .content{
+                text-align: right;
+                margin-right: 3em;
+
+            }
+        }
+
         
-
     }
 
-    .product.flip{
-        grid-row-start: 2;
-    }
-    .product.last{
-        grid-row-start: 2;
-        grid-column-start: 2;
-
-    }
+    
+    
+   
+    
 
     
 }
