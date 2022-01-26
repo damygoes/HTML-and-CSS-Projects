@@ -1,0 +1,296 @@
+/* It is best practice to start your styling with mobile view first before tab and desktop views */
+/*----- 1. Global Styling -----*/
+body {
+  margin: 1.5em;
+}
+
+a {
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+li {
+  list-style-type: none;
+}
+
+/*----- 2. The Background Image -----*/
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../images/pot4.jpg);
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-size: cover;
+  background-position-x: 20%;
+  background-position-y: 20%;
+}
+
+/*----- 3. The Header -----*/
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 8em;
+}
+
+header .logo {
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+header .logo span {
+  color: #008000;
+}
+
+header nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  background: white;
+  width: 50%;
+  z-index: 999;
+  text-transform: uppercase;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+}
+
+header nav .close {
+  float: right;
+  margin: 2em;
+  width: 1.5em;
+  stroke: black;
+}
+
+header nav .close path {
+  fill: black;
+}
+
+header nav ul {
+  padding: 0;
+  margin-top: 8em;
+}
+
+header nav a {
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: normal;
+  padding: .75em 2em;
+  display: block;
+  /* To Animate the navigation links, we use :hover and "&" basically declares a continuation of the code regarding the a{} styling above */
+}
+
+header nav a:hover {
+  background: #008000;
+}
+
+header .hamburger-menu {
+  width: 2em;
+  margin: -.6em;
+  cursor: pointer;
+  stroke: white;
+}
+
+header .hamburger-menu path {
+  fill: white;
+}
+
+/*----- 4. The Hero Section -----*/
+section.hero {
+  height: 90vh;
+}
+
+section.hero h1 {
+  font-size: 3rem;
+  color: white;
+  font-family: 'Martel', serif;
+  line-height: 3.6rem;
+  margin-bottom: -.2em;
+}
+
+section.hero h1 span {
+  color: #008000;
+  font-family: 'Port Lligat Sans', sans-serif;
+}
+
+section.hero .sub-head {
+  font-size: 1.4rem;
+  font-family: 'Martel', serif;
+  color: white;
+}
+
+section.hero .down-arrow {
+  stroke: white;
+  position: absolute;
+  bottom: 2em;
+  width: 2em;
+}
+
+section.hero .down-arrow path {
+  fill: white;
+}
+
+/*----- 5. The Product Section -----*/
+.product-info-grid img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 25em;
+}
+
+.product-info-grid .side-img {
+  height: 35em;
+}
+
+.product-info-grid .title {
+  font-family: 'Port Lligat Sans', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.product-info-grid .desc {
+  font-family: 'Martel', serif;
+  line-height: 1.5rem;
+}
+
+/*----- 6. The Footer -----*/
+.footer-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-top: .5em;
+  font-family: 'Martel', serif;
+  font-size: .8rem;
+  font-style: italic;
+}
+
+.footer-container .footer-img {
+  background: url(../images/pot4.jpg);
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  opacity: 0.6;
+  height: 4em;
+  left: 0;
+}
+
+/*----- 7. Media Queries -----*/
+@media only screen and (min-width: 630px) {
+  body {
+    margin: 1.5em 5em;
+  }
+}
+
+@media only screen and (min-width: 890px) {
+  .hamburger-menu {
+    display: none;
+  }
+  header nav {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    position: unset;
+    display: block;
+    width: auto;
+    height: auto;
+    background: none;
+  }
+  header nav .close {
+    display: none;
+  }
+  header nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+  }
+  header nav ul a {
+    padding: .5em 1.5em;
+    font-size: .9rem;
+    color: white;
+  }
+  /*
+    // This whole section doesn't not look good with our current website, so we will ignore it. However, I have chosen to leave the code here to serve as reference for future projects.
+    .hero-img{
+        left: unset; // this will detach the hero background image
+        right: 0; // we set this value to 0 because we want to move the image right
+        width: 50%; // this will allow the image take up half of the screen size
+        height: 42em; // this sets a fixed height for the background image
+    }
+
+    header .logo{
+        color: black; // this will change the logo color to black
+    }
+    section.hero h1, section.hero .sub-head{
+        color: black; // this will change the title and sub-title in the hero section to black
+    }
+    section.hero{
+        color: black;
+        height: auto;
+        width: 40%;
+        margin-bottom: 8em;
+
+        .down-arrow{
+            stroke: black;
+            position: unset;
+            path{
+                fill: black;
+            }
+        }
+    }
+    */
+  .product-info-grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    gap: 3em;
+    margin-bottom: 5em;
+    /* This works fine too but not what I want, might use it later 
+        .content.p1{
+            grid-column-start: 2;
+            grid-row-start: 1;
+
+        }
+        */
+  }
+  .product-info-grid img {
+    width: 25em;
+  }
+  .product-info-grid .content {
+    text-align: right;
+    width: 25em;
+  }
+  .product.flip {
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+  }
+  .product.last {
+    -ms-grid-row: 2;
+        grid-row-start: 2;
+    -ms-grid-column: 2;
+        grid-column-start: 2;
+  }
+}
+/*# sourceMappingURL=main.css.map */

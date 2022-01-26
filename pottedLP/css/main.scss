@@ -1,0 +1,307 @@
+/* It is best practice to start your styling with mobile view first before tab and desktop views */
+/*----- 1. Global Styling -----*/
+body{
+    margin: 1.5em;
+}
+a{
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+li{
+    list-style-type: none;
+}
+
+/*----- 2. The Background Image -----*/
+.hero-img{
+    position: absolute; // this position will allow the background/image to be adjustable/movable and positioned as we want on the screen
+    top: 0; // top & left are used for positioning and it works only with position:absolute. top:0 and left:0 will set our image to fill up the screen without gaps at the edges
+    left: 0;
+    background: url(../images/pot4.jpg);
+    width: 100%; // 100% of the browser width
+    height: 100vh; // 100% viewport height i.e the size you can see on your screen without scrolling
+    z-index: -1; // sets the background picture backwards; so all the website content can be shown on it
+    background-size: cover; // sets the background image to be centered in view
+    background-position-x: 20%;
+    background-position-y: 20%;
+    // opacity: 0.8;
+}
+
+/*----- 3. The Header -----*/
+// a. General Header Styling
+header{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8em;
+
+    //b The Logo
+    .logo{
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold;
+        font-size: 2rem;
+        // i. Styling the "ED" characters
+        span{
+            color: #008000;
+        }
+    }    
+
+    //c. The Navigation Bar
+    /// i. General Styling of the Nav-Bar
+    nav{
+        position: fixed; // keeps the navigation bar fixed in position irrespective of scrolling. This is especially useful for mobile interfaces.
+        right: 0; // because we want the menu bar to stay on the right slide and also slide in from the right as we will animate later
+        top: 0; // makes sure there's no space at the top
+        height: 100vh;
+        background:white;
+        width: 50%; // sets the menu bar to take up 50% of the visible screen size
+        z-index: 999; // to make sure it goes over all the content
+        text-transform: uppercase; // allows us to transform all the menu bar text to uppercase
+        transform: translateX(100%); // this hides away the whole navigation bar from view
+        transition: transform .5s ease-in-out; // when the nav-bar is animated using JavaScript, this line allows the nav-bar to ease-in and -out according to the time specified (5s) and it changes the translateX(100%)-which currently hides away the nav bar, to 0% so that it can be visible when a user clicks on the hamburger menu to reveal the nav-bar. 
+        
+        /// ii. Styling the close icon of the Nav-Bar
+        .close{
+            float: right; // pushes the close icon to the right
+            margin: 2em;
+            width: 1.5em;
+            stroke: black; // give the close svg button a black color.
+            path{
+                fill: black;
+            }
+        }
+        /// iii. Styling the items/lists of the Nav-Bar
+        ul{
+            padding: 0; // gets rid of default padding added by browsers
+            margin-top: 8em; // pushes the menu-bar content away from the top by 8em to allow space for our close button
+        }
+        /// iv. Styling the links of the Nav-Bar
+        a{
+            color: black;
+            font-family: 'Poppins', sans-serif;
+            font-weight: normal;
+            padding: .75em 2em;
+            display: block; // note that padding on a link element will not work unless the display is set to block
+
+
+            /// v. Animating the Nav-Bar
+            /* To Animate the navigation links, we use :hover and "&" basically declares a continuation of the code regarding the a{} styling above */
+            &:hover {
+                background: #008000;
+            }
+        }
+        
+    
+        
+    }
+    //d. The Hamburger Menu
+    .hamburger-menu{
+        width: 2em;
+        margin: -.6em;
+        cursor: pointer;
+        stroke: white;
+        path{
+            fill: white;
+        }
+    }    
+}
+
+/*----- 4. The Hero Section -----*/
+// a. General hero section styling
+section.hero{
+    height: 90vh;
+
+    // b. Styling the Title
+    h1{
+        font-size: 3rem;
+        color: white;
+        font-family: 'Martel', serif;
+        line-height: 3.6rem;
+        margin-bottom: -.2em;
+
+        // i. Styling the "Breathe" word
+        span{
+            color: #008000;
+            font-family: 'Port Lligat Sans', sans-serif;
+        }
+    }
+    // c. Styling the sub-title
+    .sub-head{
+        font-size: 1.4rem;
+        font-family: 'Martel', serif;
+        color: white;
+    }
+    // d. Styling the downward-pointing arrows
+    .down-arrow{
+        stroke: white;
+        position: absolute;
+        bottom: 2em;
+        width: 2em;
+        path{
+            fill: white;
+        }
+    }
+}
+
+/*----- 5. The Product Section -----*/
+.product-info-grid{
+    img{
+        width: 100%; // this makes all the images in this section responsive
+        object-fit: cover; // the object-fit works together with setting a defined height. This allows the images to have a fixed size and not get distorted when the browser size changes
+        height: 25em;
+    }
+    .side-img{
+        // visibility: hidden; // this hides the last image in the product section on the mobile view
+        height: 35em;
+    }
+    .title{
+        font-family: 'Port Lligat Sans', sans-serif;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+
+    .desc{
+        font-family: 'Martel', serif;
+        line-height: 1.5rem;
+    }
+}
+
+/*----- 6. The Footer -----*/
+// a. General footer styling
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: .5em;
+    font-family: 'Martel', serif;
+    font-size: .8rem;
+    font-style: italic;
+
+    // b. Styling the footer image
+    .footer-img{
+        background: url(../images/pot4.jpg);
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+        background-size: cover; // makes the image fill the container
+        background-position: center; // places the image in the center of the container
+        transform: scaleX(-1); // flips the image from left to right
+        opacity: 0.6; // makes the image a bit light
+        height: 4em; // sets the height of the image
+        left: 0; // eliminates the left margin and makes sure the image stretches from edge to edge
+    }     
+}
+
+/*----- 7. Media Queries -----*/
+// This sets the responsiveness of the website for various screen sizes
+
+@media only screen and (min-width: 630px) {
+    body{
+        margin: 1.5em 5em;
+    }
+
+}
+
+@media only screen and (min-width: 890px) {
+    .hamburger-menu{
+        display: none;
+    };
+
+    header nav{
+        transform: translateX(0); // this allows the nav-bar to re-appear and be visible to users. Remember translateX was initially set to 100 in the styling code above to hide it from users
+        position: unset; // this will detach the nav-bar so we can edit the positioning. Remember the position was initially set to fixed in the code above
+        display: block; // sets element as a block element
+        width: auto; // sets width to auto
+        height: auto; // sets height to auto
+        background: none; // this removes the huge white background behind the nav bar
+
+        .close{
+            display: none; // this hides the close button (X)
+        }
+
+        ul{
+            display: flex; // re-orders the positioning of the nav-links to side-by-side instead of stacking them on one another
+            margin: 0; // this removes the initially defined margin set in the code above
+
+            a{
+                padding: .5em 1.5em;
+                font-size: .9rem;
+                color: white;
+            }
+        }
+
+    }
+    /*
+    // This whole section doesn't not look good with our current website, so we will ignore it. However, I have chosen to leave the code here to serve as reference for future projects.
+    .hero-img{
+        left: unset; // this will detach the hero background image
+        right: 0; // we set this value to 0 because we want to move the image right
+        width: 50%; // this will allow the image take up half of the screen size
+        height: 42em; // this sets a fixed height for the background image
+    }
+
+    header .logo{
+        color: black; // this will change the logo color to black
+    }
+    section.hero h1, section.hero .sub-head{
+        color: black; // this will change the title and sub-title in the hero section to black
+    }
+    section.hero{
+        color: black;
+        height: auto;
+        width: 40%;
+        margin-bottom: 8em;
+
+        .down-arrow{
+            stroke: black;
+            position: unset;
+            path{
+                fill: black;
+            }
+        }
+    }
+    */
+
+    .product-info-grid{
+        display: grid;
+        // grid-template-columns: repeat(3, auto);
+        grid-template-columns: 1fr 1fr;
+        gap: 3em;
+        margin-bottom: 5em;
+        
+        img{
+            width: 25em;
+        }
+
+        .content{
+            text-align: right;
+            width: 25em;
+        }
+
+        /* This works fine too but not what I want, might use it later 
+        .content.p1{
+            grid-column-start: 2;
+            grid-row-start: 1;
+
+        }
+        */
+
+        
+
+        
+
+    }
+
+    .product.flip{
+        grid-row-start: 2;
+    }
+    .product.last{
+        grid-row-start: 2;
+        grid-column-start: 2;
+
+    }
+
+    
+}
+
+// My head is blowing UP!!!! I will continue tomorrow

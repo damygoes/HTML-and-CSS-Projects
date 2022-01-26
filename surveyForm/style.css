@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box; /* resets default browser settings */ 
+}
+body{
+    width: 100%; /* width & height sets body/background to fill up the whole screen */
+    height: 100%; /* width & height sets body/background to fill up the whole screen */
+    margin: 0px; /* makes sure background is locked to the screen edges */
+    font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-size:cover; /* sets background image to fill up the whole body area without repeating */
+    background-position:center; /* centers the background image */
+    background-attachment: fixed; /* locks the background position in place, so it doesn't move with all the other contents */
+    background-blend-mode:overlay; /* defines how the purple color layer and the background image is blended/mixed together */
+    background-color: #2A2947; /* places a purple color layer on top of the background image */
+    background-image: url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+}    
+
+.container, #survey-form, .form-group, .header{ /* defines the outline/flow of the id & class divs */
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    width: 70%;
+    margin-left: 16%;
+    border: none;
+}
+
+#title{
+    color: white;
+    font-size: 32px;
+    font-weight: normal;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 12px;
+}
+#description{
+    text-align: center;
+    margin-top: 5px;
+    font-size: large;
+    font-weight: normal;
+    font-style: italic;
+    color: rgb(223, 215, 215);
+}
+
+#survey-form{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2%;
+    background-color: #2A2947;
+    padding: 5%;
+    font-size: large;
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+.form-group{
+   margin-bottom: 5%;
+   color: white;
+
+}
+label{
+    margin-bottom: 2%;
+}
+
+ .form-control{
+    border-radius: 8px;
+    height: 50px;
+    border: none;
+    font-size: medium;
+    color: darkgray;
+    padding: 15px;
+}
+.input-textarea{
+    height: 150px;
+    border: none;
+
+}
+.submit-button{
+    background-color: #37AF65;
+    border-radius: 5px;
+    color: white;
+    height: 50px;
+    border: none;
+    font-size: large;
+}
